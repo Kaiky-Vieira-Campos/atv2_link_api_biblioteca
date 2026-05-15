@@ -38,6 +38,18 @@ def reset_memory_db():
     db.clientes_por_cpf.clear()
     db.produtos_por_id.clear()
     db.pedidos_por_codigo.clear()
+    if hasattr(db, "usuarios"):
+        db.usuarios.clear()
+    if hasattr(db, "salas"):
+        db.salas.clear()
+    if hasattr(db, "reservas"):
+        db.reservas.clear()
+    if hasattr(db, "next_usuario_id"):
+        db.next_usuario_id = 1
+    if hasattr(db, "next_sala_id"):
+        db.next_sala_id = 1
+    if hasattr(db, "next_reserva_id"):
+        db.next_reserva_id = 1
     yield
 
 
